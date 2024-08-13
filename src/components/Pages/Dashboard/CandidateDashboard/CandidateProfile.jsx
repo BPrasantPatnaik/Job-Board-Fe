@@ -61,7 +61,7 @@ function CandidateProfile() {
       formData.append('dateOfBirth', dateOfBirth);
   
       console.log("File name =................................................................................................................................",file)
-      const res = await axios.post('/api/candidate/Dashboard/Profile/', formData , {
+      const res = await axios.post('/api/candidate/Dashboard/Profile', formData , {
         headers: {
           'Content-Type': 'multipart/form-data' // Important: Set the content type to multipart/form-data
         }
