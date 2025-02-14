@@ -27,27 +27,27 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path='/' element={<Index/>} />
-        <Route path='/jobs' element={<Joblist/>} />
-        <Route path='/JobDetail/:jobID' element={<JobDetail/>} />
-        <Route path='/JobList' element={<JobList/>} />
-        <Route path='/employer/Dashboard' element={<EmployerDashBoard/>} />
-        <Route path='/employer/Dashboard/Profile' element={<EmployerDashBoard/>} />
-        <Route path='/candidate/Dashboard' element={<CandidateDashBoard/>} />
-        <Route path='/candidate/Dashboard/Profile' element={<CandidateDashBoard/>} />
-        <Route path='/PostaJob' element={<EmployerDashBoard/>} />
-        <Route path='/Apply/:jobID' element={<Apply/>} />
-        <Route path='/Signin' element={<EmpCan/>} />
-        <Route path='/signin/candidate' element={<Candidate/>} />
-        <Route path='/signin/employer' element={<Employer/>} />
-        <Route path='/signup/candidate' element={<CandidateSignup/>} />
-        <Route path='/signup/employer' element={<EmployerSignup/>} />
+        <Route path='/' element={<Index />} />
+        <Route path='/jobs' element={<Joblist />} />
+        <Route path='/JobDetail/:jobID' element={<JobDetail />} />
+        <Route path='/JobList' element={<JobList />} />
+        <Route path='/employer/Dashboard' element={<EmployerDashBoard />} />
+        <Route path='/employer/Dashboard/Profile' element={<EmployerDashBoard />} />
+        <Route path='/candidate/Dashboard' element={<CandidateDashBoard />} />
+        <Route path='/candidate/Dashboard/Profile' element={<CandidateDashBoard />} />
+        <Route path='/PostaJob' element={<EmployerDashBoard />} />
+        <Route path='/Apply/:jobID' element={<Apply />} />
+        <Route path='/Signin' element={<EmpCan />} />
+        <Route path='/signin/candidate' element={<Candidate />} />
+        <Route path='/signin/employer' element={<Employer />} />
+        <Route path='/signup/candidate' element={<CandidateSignup />} />
+        <Route path='/signup/employer' element={<EmployerSignup />} />
 
       </Routes>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
-      <Footer/>
+      <Footer />
     </>
   )
 }

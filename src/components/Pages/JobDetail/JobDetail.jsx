@@ -13,51 +13,51 @@ function JobDetail() {
 
   const isMobile = window.innerWidth <= 768;
 
-  const [jobProfile,setJobProfile]=useState({})
+  const [jobProfile, setJobProfile] = useState({})
 
-  const {jobID}=useParams()
-  
-  useEffect(()=>{
-    
-    //console.log(jobID)
-    const getJobData = async(req,res)=>{
-      const result=await axios.post('/api/getJobData',{jobID})
+  const { jobID } = useParams()
+
+  useEffect(() => {
+
+    // console.log(jobID)
+    const getJobData = async (req, res) => {
+      const result = await axios.post('/api/getJobData', { jobID })
       //console.log("Result we got from backend in job detail section frontend =",result.data.Data[0])
       setJobProfile(result.data.Data[0])
     }
-    
+
     getJobData()
-    
+
   })
   return (
     <div className={` max-w-screen-2xl mx-auto `} >
-      <div className={`flex justify-center font-serif underline ${isMobile ? 'text-[8vw]' : 'text-[3vw]'} pb-[3vw] text-green-600 relative top-[3vw]`}  ><WorkIcon style={{fontSize:isMobile ?"10vw":'5vw' }}/>Description of Job</div>
-      <div  className={`Detail-box-Upper-Part bg-gray-100 ${isMobile ? 'm-[0vw]' : 'm-[10vw]'} ${isMobile ? 'p-[0vw]' : 'p-[5vw]'}  rounded-md`}>
+      <div className={`flex justify-center font-serif underline ${isMobile ? 'text-[8vw]' : 'text-[3vw]'} pb-[3vw] text-green-600 relative top-[3vw]`}  ><WorkIcon style={{ fontSize: isMobile ? "10vw" : '5vw' }} />Description of Job</div>
+      <div className={`Detail-box-Upper-Part bg-gray-100 ${isMobile ? 'm-[0vw]' : 'm-[10vw]'} ${isMobile ? 'p-[0vw]' : 'p-[5vw]'}  rounded-md`}>
         <div className={`flex gap-[2vw] `} >
           <div className={`left `}>
-              <img src={`https://source.unsplash.com/random/?company=${1}`} alt="card-image" className={`object-cover w-auto ${isMobile ? 'h-[15vw]' : 'md:h-64'} rounded-full sm:rounded-none lg:rounded-md xl:rounded-lg`} />
+            <img src={`https://source.unsplash.com/random/?company=${1}`} alt="card-image" className={`object-cover w-auto ${isMobile ? 'h-[15vw]' : 'md:h-64'} rounded-full sm:rounded-none lg:rounded-md xl:rounded-lg`} />
           </div>
           <div className={`right flex flex-col gap-[5vw] `}>
             <div className={` text-green-500 flex justify-center align-middle ${isMobile ? 'text-[5vw]' : 'text-[2vw]'}  font-serif font-bold underline`} >{jobProfile.companyName}</div>
 
             <div className={`flex flex-col gap-[1vw] `} >
-              <div className={`font-serif font-semibold ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} text-[1.5vw] `} >Job Role <EngineeringIcon style={{fontSize: '2.5vw' }}/> : <span className={`text-green-500 `} >{jobProfile.jobTitle}</span></div>
+              <div className={`font-serif font-semibold ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} text-[1.5vw] `} >Job Role <EngineeringIcon style={{ fontSize: '2.5vw' }} /> : <span className={`text-green-500 `} >{jobProfile.jobTitle}</span></div>
               <div className={` font-serif font-semibold ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} flex gap-[1vw]`} >
-                Experience <WorkIcon style={{fontSize: '2vw'}}/>:<span className={`text-green-500 `} >{jobProfile.experienceRequired
-                  } </span><span className={`text-green-500 `} >years</span></div>
-              <div className={`font-serif font-semibold ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} `} >Category <CategoryIcon style={{fontSize: '2.5vw'}}/> : <span className={` text-green-500`} >{jobProfile.category}</span></div>
-              <div className={`font-serif font-semibold ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} `} >Salary <CurrencyRupeeIcon style={{fontSize: '2vw'}}/>:<span className={` text-green-500`} >{jobProfile.salaryOffered}</span></div>
-              <div className={`flex flex-col sm:flex-row md:flex-row gap-[1vw] align-middle `} ><LocationCityIcon style={{fontSize: '2.5vw',color:'#4caf50'}}/>
-                 <div>
+                Experience <WorkIcon style={{ fontSize: '2vw' }} />:<span className={`text-green-500 `} >{jobProfile.experienceRequired
+                } </span><span className={`text-green-500 `} >years</span></div>
+              <div className={`font-serif font-semibold ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} `} >Category <CategoryIcon style={{ fontSize: '2.5vw' }} /> : <span className={` text-green-500`} >{jobProfile.category}</span></div>
+              <div className={`font-serif font-semibold ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} `} >Salary <CurrencyRupeeIcon style={{ fontSize: '2vw' }} />:<span className={` text-green-500`} >{jobProfile.salaryOffered}</span></div>
+              <div className={`flex flex-col sm:flex-row md:flex-row gap-[1vw] align-middle `} ><LocationCityIcon style={{ fontSize: '2.5vw', color: '#4caf50' }} />
+                <div>
                   {
-                    jobProfile.location && jobProfile.location.map((city,index)=>(
+                    jobProfile.location && jobProfile.location.map((city, index) => (
                       <div id={index} className={`bg-gray-50 border border-green-400 rounded-xl p-[0.5vw] ${isMobile ? 'text-[3vw]' : 'text-[1vw]'} `} >{city}</div>
                     ))
                   }
-                  </div>
+                </div>
               </div>
 
-            </div> 
+            </div>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ function JobDetail() {
         <div className={`flex flex-col sm:flex-row md:flex-row gap-[1vw] align-middle font-serif `} >
           <div className={`flex ${isMobile ? 'gap-[3vw]' : 'gap-[0.2vw]'} `}>
             {
-              jobProfile.skills && jobProfile.skills.map((skill)=>(
+              jobProfile.skills && jobProfile.skills.map((skill) => (
                 <div className={`bg-gray-50 border border-green-400 rounded-xl ${isMobile ? 'p-[3vw]' : 'p-[0.5vw]'} ${isMobile ? 'text-[3vw]' : 'text-[1.5vw]'} `} >{skill}</div>
               ))
             }
@@ -101,27 +101,27 @@ function JobDetail() {
 
       <div className={`flex align-middle justify-center `} >
         <NavLink to={`/Apply/${jobID}`}>
-        <Button
-          variant="contained"
-          style={{
-            background: '#388e3c',
-            color: 'white',
-            fontFamily: 'serif',
-            fontWeight: 'bold',
-            fontSize: isMobile ? '3vw' : '1.5vw', // Dynamic font size based on isMobile condition
-            '&:hover': {
-              background: '#8BC34A', // Light green on hover
-            }
-          }}
-        >
-          Apply Now
-        </Button>
+          <Button
+            variant="contained"
+            style={{
+              background: '#388e3c',
+              color: 'white',
+              fontFamily: 'serif',
+              fontWeight: 'bold',
+              fontSize: isMobile ? '3vw' : '1.5vw', // Dynamic font size based on isMobile condition
+              '&:hover': {
+                background: '#8BC34A', // Light green on hover
+              }
+            }}
+          >
+            Apply Now
+          </Button>
 
 
         </NavLink>
-        
+
       </div>
-      
+
     </div>
   )
 }

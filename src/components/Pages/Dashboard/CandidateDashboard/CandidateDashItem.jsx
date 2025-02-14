@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function CandidateDashItem() {
 
-    const isMobile = window.innerWidth <= 768; 
+    const isMobile = window.innerWidth <= 768;
 
     const navigate = useNavigate();
     const [userID, setUserId] = useState('');
@@ -15,29 +15,31 @@ function CandidateDashItem() {
     const [jobID, setJobId] = useState([]);
     const [jobData, setjobData] = useState([]);
 
-    const [eachJob,setEachJob]=useState({})
+    const [eachJob, setEachJob] = useState({})
 
-    const [account,setAccount]=useState(0)
-    const [engg,setEngg]=useState(0)
-    const [purchase,setPurchase]=useState(0)
-    const [HC,setHC]=useState(0)
-    const [SM,setSM]=useState(0)
+    const [account, setAccount] = useState(0)
+    const [engg, setEngg] = useState(0)
+    const [purchase, setPurchase] = useState(0)
+    const [HC, setHC] = useState(0)
+    const [SM, setSM] = useState(0)
 
     //for pagination in display(start)
-    const [currentPage,setCurrentPage]=useState(1);
-    const PageSize=3;
+    const [currentPage, setCurrentPage] = useState(1);
+    const PageSize = 3;
 
-    const lastItemIndex=PageSize * currentPage;
-    const firstItemIndex=lastItemIndex-PageSize;
+    const lastItemIndex = PageSize * currentPage;
+    const firstItemIndex = lastItemIndex - PageSize;
 
-    const currentJobs =jobData && jobData.slice(firstItemIndex, lastItemIndex);
-    console.log("current jobs :",currentJobs)
+    const currentJobs = jobData && jobData.slice(firstItemIndex, lastItemIndex);
+    console.log("current jobs :", currentJobs)
 
     const paginate = (pageNumber) => {
-      setCurrentPage(pageNumber);
+        setCurrentPage(pageNumber);
     };
-  //for pagination in display(end)
+    //for pagination in display(end)
 
+
+    //finding user id.....
     useEffect(() => {
         console.log("Executing useEffect for getCandidateData");
         const getCandidateData = async () => {
@@ -55,34 +57,9 @@ function CandidateDashItem() {
             }
         };
         getCandidateData();
-    }, []);
-    
-    useEffect(() => {
-        const fetchUserDetails = async () => {
-            try {
-                console.log("Getting user details for UserID =", userID);
-                const userDetails = await getUserDetails();
-                console.log("User details:", userDetails);
-                setUserDetail(userDetails);
-                if (userDetails && userDetails.applications && Array.isArray(userDetails.applications)) {
-                    
-                    for (let i = 0; i < userDetails.applications.length; i++) {
-                        console.log(userDetails.applications[i]);
-                        setJobId((prev)=>[...prev,userDetails.applications[i]])
-                    }  
-                }
-            } catch (error) {
-                console.error("Error fetching user details:", error);
-            }
-        };
-    
-        if (userID !== '') {
-            fetchUserDetails();
-        }
-    }, [userID]);
-    
-    
-    
+    });
+
+
     const getUserDetails = async () => {
         try {
             console.log("Fetching user details for UserID =", userID);
@@ -95,9 +72,37 @@ function CandidateDashItem() {
         }
     }
 
+    // Fetch user details when userID changes
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            try {
+                console.log("Getting user details for UserID =", userID);
+                const userDetails = await getUserDetails();
+                console.log("User details:", userDetails);
+                setUserDetail(userDetails);
+                if (userDetails && userDetails.applications && Array.isArray(userDetails.applications)) {
+
+                    for (let i = 0; i < userDetails.applications.length; i++) {
+                        console.log(userDetails.applications[i]);
+                        setJobId((prev) => [...prev, userDetails.applications[i]])
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching user details:", error);
+            }
+        };
+
+        if (userID !== '') {
+            fetchUserDetails();
+        }
+    }, [userID]);
 
 
-    const getJobs=async ()=>{
+
+
+
+
+    const getJobs = async () => {
         try {
             console.log("Fetching job datas =", jobID);
             const result = await axios.post("/api/getJobData/jobId", { jobID });
@@ -117,8 +122,10 @@ function CandidateDashItem() {
 
     //console.log("User ka detail",userDetail)
     //console.log("Ids mil gya ",jobID)
-    const jobDatas= getJobs();
+    const jobDatas = getJobs();
 
+
+    // Fetch job data when jobID changes
     useEffect(() => {
         const fetchJobData = async () => {
             const jobDatas = await getJobs();
@@ -127,12 +134,12 @@ function CandidateDashItem() {
                 setjobData(jobDatas);
             }
         };
-    
+
         fetchJobData(); // Call the function to fetch job data
     }, [jobID]);
 
-    console.log("Kaam ki cheez yeh hai =",jobData)
-    
+    console.log("Kaam ki cheez yeh hai =", jobData)
+
     useEffect(() => {
         console.log("I am here to count the data");
         // Add a condition to check if jobData is not empty
@@ -158,25 +165,25 @@ function CandidateDashItem() {
             }
         }
     }, [jobData]); // Include jobData as a dependency
-    
 
-    const JobType=(Job)=>{
-        console.log("Job ka value yahan hai",Job)
+
+    const JobType = (Job) => {
+        console.log("Job ka value yahan hai", Job)
         setEachJob(Job)
-        console.log("Each job ka value mil gya = ",eachJob)
+        console.log("Each job ka value mil gya = ", eachJob)
         return Job.jobType
     }
 
-    
 
 
-        
-    
-  return (
-    <div className={` Right mb-[5vw] w-full`}  >
-        <div  className={`font-serif font-semibold underline flex justify-center align-middle ${isMobile ? 'text-[7vw]' : 'text-[3vw]'} pb-[3vw] text-green-600 `}  >DashBoard</div>
+
+
+
+    return (
+        <div className={` Right mb-[5vw] w-full`}  >
+            <div className={`font-serif font-semibold underline flex justify-center align-middle ${isMobile ? 'text-[7vw]' : 'text-[3vw]'} pb-[3vw] text-green-600 `}  >DashBoard</div>
             <div className={`Right-top ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} py-[1vw] bg-slate-50 ${isMobile ? 'p-[5vw]' : 'p-[1.5vw]'} ${isMobile ? 'my-[5vw]' : 'my-[1.5vw]'} font-serif rounded-md border border-green-200 w-full`}>
-    
+
                 <div className={` ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} ${isMobile ? '' : 'm-[1.5vw]'} flex justify-center underline text-green-500 font-medium`}  ><PublicIcon style={{ fontSize: isMobile ? '6vw' : '3vw', marginRight: '1vw' }} />Applications in different Categories</div>
                 <div className={`py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} `}  >Engineering : {engg}</div>
                 <div className={`py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} `}  >Health & Care : {HC}</div>
@@ -185,7 +192,7 @@ function CandidateDashItem() {
                 <div className={` py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'}`}  >Sales & Marketing : {SM}</div>
             </div>
             <div className={`Right-bottom ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} py-[1vw] bg-slate-50 p-[1vw] font-serif rounded-md border border-green-200 w-full`}>
-    
+
                 <div className={`${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'}  flex justify-center underline text-green-500 font-medium `}  ><ReceiptLongIcon style={{ fontSize: isMobile ? '6vw' : '3vw', marginRight: '1vw' }} />Job Applications</div>
 
                 {/* {
@@ -193,7 +200,7 @@ function CandidateDashItem() {
                 } */}
 
                 {
-                    
+
                     currentJobs && currentJobs.map((job, index) => (
                         <div key={index} className={` Each job bg-white p-5 my-[1vw] rounded-lg flex justify-around gap-5 hover:shadow-2xl`}  >
                             <div className={`left part `}  >
@@ -202,12 +209,11 @@ function CandidateDashItem() {
                                         {/* Assuming jobType is a property of each job object */}
                                         {job[0].jobTitle}
                                     </div>
-                                    <div  className={` flex justify-center align-middle ${isMobile ? 'text-[3vw]' : 'text-[1vw]'} p-1 rounded-md text-white font-semibold ${
-                                        job[0].jobType === 'Full Time' ? 'bg-green-400' :
-                                        job[0].jobType === 'Part Time' ? 'bg-yellow-400' :
-                                        job[0].jobType === 'Temporary' ? 'bg-blue-400' :
-                                        job[0].jobType === 'Freelance' ? 'bg-red-400' : 'bg-blue-400'
-                                    }`}>
+                                    <div className={` flex justify-center align-middle ${isMobile ? 'text-[3vw]' : 'text-[1vw]'} p-1 rounded-md text-white font-semibold ${job[0].jobType === 'Full Time' ? 'bg-green-400' :
+                                            job[0].jobType === 'Part Time' ? 'bg-yellow-400' :
+                                                job[0].jobType === 'Temporary' ? 'bg-blue-400' :
+                                                    job[0].jobType === 'Freelance' ? 'bg-red-400' : 'bg-blue-400'
+                                        }`}>
                                         {job[0].jobType} {/* Assuming jobType is a property of each job object */}
                                     </div>
                                 </div>
@@ -220,75 +226,74 @@ function CandidateDashItem() {
                             </div>
                             <div className={`right part ${isMobile ? 'text-[3vw]' : 'text-[1vw]'} `}  >
                                 <div className={` font-serif font-semibold`}  >Requirements :(min req.)</div><br />
-                                
+
                                 {
-                    
-                                    job[0].skills && job[0].skills.map((skill)=>(
+
+                                    job[0].skills && job[0].skills.map((skill) => (
                                         <div className={`flex gap-1 flex-wrap text-blue-500 font-semibold `}  >
                                             {skill}
                                         </div>
                                     ))
                                 }
 
-                                
+
                             </div>
                         </div>
                     ))
                 }
 
 
-                 
-                 {/* {Job 1 completed} */}
+
+                {/* {Job 1 completed} */}
 
             </div>
 
             <div className={`mt-[3vw] w-full`}>
                 {Array.isArray(jobData) && jobData.length > 0 && (
-                        <div className={` flex justify-center`}  >
-                            {/* Previous Button */}
-                            <button
+                    <div className={` flex justify-center`}  >
+                        {/* Previous Button */}
+                        <button
                             onClick={() => paginate(currentPage - 1)}
                             disabled={currentPage === 1}
-                            className={`mx-2 px-3 py-1 rounded bg-gray-200 text-gray-700 `}  
-                            >
+                            className={`mx-2 px-3 py-1 rounded bg-gray-200 text-gray-700 `}
+                        >
                             Previous
-                            </button>
+                        </button>
 
-                            {/* Page Buttons */}
-                            {Array.from({ length: Math.ceil(jobData.length / PageSize) }).map((_, index) => {
+                        {/* Page Buttons */}
+                        {Array.from({ length: Math.ceil(jobData.length / PageSize) }).map((_, index) => {
                             const pageNumber = index + 1;
                             const isWithinRange = Math.abs(pageNumber - currentPage) < 2;
                             if (pageNumber === 1 || pageNumber === Math.ceil(jobData.length / PageSize) || isWithinRange) {
                                 return (
-                                <button
-                                    key={index}
-                                    onClick={() => paginate(pageNumber)}
-                                    className={`mx-2 px-3 py-1 rounded ${
-                                    currentPage === pageNumber ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'
-                                    }`}
-                                >
-                                    {pageNumber}
-                                </button>
+                                    <button
+                                        key={index}
+                                        onClick={() => paginate(pageNumber)}
+                                        className={`mx-2 px-3 py-1 rounded ${currentPage === pageNumber ? 'bg-gray-800 text-white' : 'bg-gray-200 text-gray-700'
+                                            }`}
+                                    >
+                                        {pageNumber}
+                                    </button>
                                 );
                             }
                             return null;
-                            })}
+                        })}
 
-                            {/* Next Button */}
-                            <button
+                        {/* Next Button */}
+                        <button
                             onClick={() => paginate(currentPage + 1)}
                             disabled={currentPage === Math.ceil(jobData.length / PageSize)}
-                            className={`mx-2 px-3 py-1 rounded bg-gray-200 text-gray-700 `}  
-                            >
+                            className={`mx-2 px-3 py-1 rounded bg-gray-200 text-gray-700 `}
+                        >
                             Next
-                            </button>
-                        </div>
-                    )}
+                        </button>
+                    </div>
+                )}
             </div>
-            
+
 
         </div>
-  )
+    )
 }
 
 export default CandidateDashItem

@@ -29,7 +29,7 @@ function SearchSection() {
         if (input) {
             fetchData();
         }
-        else{
+        else {
             setDropDown(false);
         }
     }, [input]);
@@ -65,12 +65,12 @@ function SearchSection() {
                             type="button" // Prevent form submission
                             className={`w-full bg-green-500 text-white px-[1vw] py-[0.6vw] rounded-md focus:outline-none hover:bg-green-600`}
                         >
-                            <SearchIcon style={{fontSize:isMobile ? "6vw":"3vw"}}/>
-                            
+                            <SearchIcon style={{ fontSize: isMobile ? "6vw" : "3vw" }} />
+
                         </button>
                     </div>
                 </NavLink>
-                
+
             </div>
 
             {dropDown && (
