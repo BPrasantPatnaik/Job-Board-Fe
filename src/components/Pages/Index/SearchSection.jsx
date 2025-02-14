@@ -46,6 +46,7 @@ function SearchSection() {
 
     return (
         <form className={`form-inline px-[5vw] py-[2vw] pb-[5vw] text-[2vw] relative bottom-[5vw] ${isMobile ? 'text-[4.5vw]' : 'text-[2vw]'}`}>
+
             <div className={`flex flex-wrap w-full gap-[3vw] justify-center align-middle `}>
                 <div className={`flex-1 mb-[2vw] ${isMobile ? 'max-w-[70vw]' : 'max-w-[30vw]'}  `}>
                     <div className={`relative`}>

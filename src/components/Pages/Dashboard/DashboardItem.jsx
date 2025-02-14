@@ -70,9 +70,9 @@ function DashboardItem() {
     })
 
     return (
-        <div className={`Right mb-[10vw] flex flex-col justify-center align-middle `}  >
+        <div className={`Right mb-[10vw] flex flex-col justify-center align-middle dark:bg-[#101012]`}  >
             <div className={`flex justify-center font-serif font-semibold underline ${isMobile ? 'text-[8vw]' : 'text-[3vw]'} pb-[3vw] text-green-600`}  >DashBoard </div>
-            <div className={`Right-top ${isMobile ? 'text-[5vw]' : 'text-[1vw]'} py-[1vw] bg-slate-50 p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 min-w-[55vw] `}  >
+            <div className={`Right-top ${isMobile ? 'text-[5vw]' : 'text-[1vw]'} py-[1vw] bg-slate-50 dark:bg-[#212734] dark:text-slate-200 p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 min-w-[55vw] `}  >
                 <div className={` ${isMobile ? 'text-[4vw]' : 'text-[2vw]'} flex justify-center underline text-green-500 font-medium`}  ><PublicIcon style={{ fontSize: "3vw", marginRight: "1vw" }} />Jobs Offered in different Categories</div>
                 <div className={`py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} `}  >Engineering : <span className={`${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} text-red-600 `}  >{engineeringCount} Jobs Posted</span></div>
                 <div className={` py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'}`}  >Health & Care : <span className={`${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} text-red-600 `}  >{handCCount} Jobs Posted</span></div>
@@ -80,7 +80,7 @@ function DashboardItem() {
                 <div className={` py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'}`}  >Accountancy : <span className={`${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} text-red-600 `}  >{accountancyCount} Jobs Posted</span></div>
                 <div className={` py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'}`}  >Sales & Marketing : <span className={`${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} text-red-600 `}  >{sandMCount} Jobs Posted</span></div>
             </div>
-            <div className={`Right-bottom ${isMobile ? 'text-[3vw]' : 'text-[1vw]'} py-[1vw] bg-slate-50 p-[1vw]  font-serif rounded-md border border-green-200 `}  >
+            <div className={`Right-bottom ${isMobile ? 'text-[3vw]' : 'text-[1vw]'} py-[1vw] bg-slate-50 dark:bg-[#212734] dark:text-slate-200 p-[1vw]  font-serif rounded-md border border-green-200 `}  >
                 <div className={`${isMobile ? 'text-[4vw]' : 'text-[2vw]'}  flex justify-center underline text-green-500 font-medium `}  ><ReceiptLongIcon style={{ fontSize: "3vw", marginRight: "1vw" }} />Openings Offered</div>
 
                 {

@@ -82,24 +82,24 @@ function Apply() {
     <form post="/jobs" className={`font-serif mt-[7vw] p-[5vw] `} onSubmit={applicationSubmitted}>
       <div className={`flex justify-center font-serif font-semibold underline ${isMobile ? 'text-[8vw]' : 'text-[3vw]'} pb-[3vw] text-green-600`}  >Fill the Details<FeedIcon style={{ fontSize: isMobile ? "12vw" : "5vw", marginLeft: "1vw" }} /></div>
 
-      <div className={`bg-gray-100 p-[5vw] rounded-md border border-green-400 `} >
+      <div className={`bg-gray-100 dark:bg-[#212734] dark:text-slate-200 p-[5vw] rounded-md border border-green-400 `} >
 
         <div className={` ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'}  font-medium `} >Applying for <span className={`text-green-500 `} >{jobDetail.jobTitle}</span> </div>
         <div className={`${isMobile ? 'text-[4vw]' : 'text-[1vw]'} font-medium text-green-500 pb-[5vw] `} >{jobDetail.companyName}</div>
 
         <div className={`First Name font-serif `} >
           <div className={` font-semibold ${isMobile ? 'text-[4vw]' : 'text-[1vw]'}`} >First Name :</div>
-          <input type="text" name="" id="" value={userDetail.fname} readOnly className={`m-[2vw]  border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]  `} required pattern=".*\S+.*" placeholder='Ram' />
+          <input type="text" name="" id="" value={userDetail.fname} readOnly className={`m-[2vw] dark:bg-[#151821] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]  `} required pattern=".*\S+.*" placeholder='Ram' />
         </div>
 
         <div className={`Last Name font-serif `} >
           <div className={`font-semibold ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} `} >Last Name :</div>
-          <input type="text" name="" id="" value={userDetail.lname} readOnly className={`m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `} required pattern=".*\S+.*" placeholder='Prasad' />
+          <input type="text" name="" id="" value={userDetail.lname} readOnly className={`m-[2vw] dark:bg-[#151821] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `} required pattern=".*\S+.*" placeholder='Prasad' />
         </div>
 
         <div className={`Candidate Email font-serif `} >
           <div className={` font-semibold ${isMobile ? 'text-[4vw]' : 'text-[1vw]'}`} >Email Address :</div>
-          <input type="email" name="" id="" value={userDetail.email} readOnly className={` m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]`} required pattern=".*\S+.*" placeholder='xyz@email.com' />
+          <input type="email" name="" id="" value={userDetail.email} readOnly className={` m-[2vw] dark:bg-[#151821] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]`} required pattern=".*\S+.*" placeholder='xyz@email.com' />
         </div>
 
         <div className={`Cover Letter py-[5vw]  flex `} >
@@ -107,7 +107,7 @@ function Apply() {
           <textarea
             value={inputValue}
             onChange={(event) => setInputValue(event.target.value)}
-            className={` p-2 ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} rounded transition-width duration-200 focus:outline-none text-wrap border border-gray-600  min-w-[40vw] min-h-[20vh] relative left-[3.5vw]`} required placeholder='Cover letter description i.e. Why should we hire you for this position ? (or) What are you fit for this role ? ,etc.' />
+            className={` p-2 ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} rounded transition-width duration-200 focus:outline-none text-wrap dark:bg-[#151821] border border-gray-600 dark:border-[#753ca3]  min-w-[40vw] min-h-[20vh] relative left-[3.5vw]`} required placeholder='Cover letter description i.e. Why should we hire you for this position ? (or) What are you fit for this role ? ,etc.' />
         </div>
 
         <div className={`Availability flex`} >

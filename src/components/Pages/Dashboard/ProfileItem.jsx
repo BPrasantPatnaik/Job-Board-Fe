@@ -83,81 +83,81 @@ function ProfileItem() {
   },[loggedIn,user])
 
   return (
-    <form className={`flex flex-col `}   onSubmit={PersonalFormSubmitted}>
+    <form className={`flex flex-col dark:text-slate-200`}   onSubmit={PersonalFormSubmitted}>
     <div className={`flex justify-center font-serif underline ${isMobile ? 'text-[8vw]' : 'text-[3vw]'} pb-[3vw] text-green-600`}  >Profile </div>
-    <div className={`right-top ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} py-[0.5vw] bg-slate-50 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} my-[1vw] font-serif rounded-md border border-green-200  `}  >
+    <div className={`right-top ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} py-[0.5vw] bg-slate-50 dark:bg-[#212734] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} my-[1vw] font-serif rounded-md border border-green-200  `}  >
         <div className={` ${isMobile ? 'text-[5vw]' : 'text-[1vw]'} pb-[3vw] text-green-600`}  ><BusinessIcon style={{fontSize:isMobile ?"6vw":"3vw",marginRight:"1vw"}}/>Basic Information (All fields are required to be filled)</div>
         <div>
             <div className={` ${isMobile ? 'text-[3vw]' : 'text-[1vw]'} pb-[3vw] text-green-600`}  >Astreik * fields are non-editable</div>
             <div className={`Company Name `}  >
                 <div>Company Name : *</div>
-                <input type="text" name="" id="" value={user.companyname} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'} border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'}  py-[0.5vw] min-w-[40vw] `}    required  pattern=".*\S+.*" placeholder='ABC Company'/>
+                <input type="text" name="" id="" value={user.companyname} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'} dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'}  py-[0.5vw] min-w-[40vw] `}    required  pattern=".*\S+.*" placeholder='ABC Company'/>
             </div>
 
             <div className={`Company Email `}  >
                 <div>Email Address : *</div>
-                <input type="email" name="" id="" value={user.email} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}    required pattern=".*\S+.*" placeholder='xyz@email.com'/>
+                <input type="email" name="" id="" value={user.email} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}    required pattern=".*\S+.*" placeholder='xyz@email.com'/>
             </div>
 
             <div className={` First Name`}  >
                 <div>First Name : *</div>
-                <input type="text" name="" id="" value={user.fname} readOnly className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}   required pattern=".*\S+.*" placeholder='Ram'/>
+                <input type="text" name="" id="" value={user.fname} readOnly className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}   required pattern=".*\S+.*" placeholder='Ram'/>
             </div>
 
             <div className={`Last Name `}  >
                 <div>Last Name : *</div>
-                <input type="text" name="" id="" value={user.lname} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}    required pattern=".*\S+.*" placeholder='Prasad'/>
+                <input type="text" name="" id="" value={user.lname} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}    required pattern=".*\S+.*" placeholder='Prasad'/>
             </div>
         </div>
     </div>
 
-    <div className={`right-middle ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} py-[0.5vw] bg-slate-50 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} my-[1vw] font-serif rounded-md border border-green-200 `}  >
+    <div className={`right-middle ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} py-[0.5vw] dark:bg-[#212734] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} my-[1vw] font-serif rounded-md border border-green-200 `}  >
         <div className={`${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} pb-[3vw] text-green-600 `}  ><PublicIcon style={{fontSize:isMobile ?"6vw":"3vw",marginRight:"1vw"}}/>Social Links</div>
         <div>
             <div className={`Linked Id `} >
                 <div>Linkedin :</div>
-                <input type="text" name="" id="" defaultValue={(user.linkedin)? user.linkedin:''} onChange={(e)=>setLinkedin(e.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}     placeholder='https//linkedin.com/'/>
+                <input type="text" name="" id="" defaultValue={(user.linkedin)? user.linkedin:''} onChange={(e)=>setLinkedin(e.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}     placeholder='https//linkedin.com/'/>
             </div>
 
             <div className={` Twitter id`}  >
                 <div>Twitter :</div>
-                <input type="text" name="" id="" defaultValue={(user.twitter)?user.twitter :''} onChange={(e)=>setTwitter(e.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}    placeholder='https//twitter.com/'/>
+                <input type="text" name="" id="" defaultValue={(user.twitter)?user.twitter :''} onChange={(e)=>setTwitter(e.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}    placeholder='https//twitter.com/'/>
             </div>
 
             <div className={` Facebook`}  >
                 <div>Facebook :</div>
-                <input type="text" name="" id="" defaultValue={(user.facebook)?user.facebook :''} onChange={(e)=>setFacebook(e.target.value)} className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw]`}     placeholder='https//facebook.com/'/>
+                <input type="text" name="" id="" defaultValue={(user.facebook)?user.facebook :''} onChange={(e)=>setFacebook(e.target.value)} className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw]`}     placeholder='https//facebook.com/'/>
             </div>
 
             <div className={`Instagram `}  >
                 <div>Instagram :</div>
-                <input type="text" name="" id="" defaultValue={(user.instagram)?user.instagram :''}  onChange={(e)=>setInstagram(e.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}     placeholder='hhtps//instagram.com/'/>
+                <input type="text" name="" id="" defaultValue={(user.instagram)?user.instagram :''}  onChange={(e)=>setInstagram(e.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}     placeholder='hhtps//instagram.com/'/>
             </div>
 
         </div>
     </div>
 
-    <div className={`right-lower ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} py-[0.5vw] bg-slate-50 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} my-[1vw] font-serif rounded-md border border-green-200  `}  >
+    <div className={`right-lower ${isMobile ? 'text-[4vw]' : 'text-[1vw]'} py-[0.5vw] bg-slate-50 dark:bg-[#212734] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} my-[1vw] font-serif rounded-md border border-green-200  `}  >
         <div className={`${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} pb-[3vw] text-green-600 `} ><HomeIcon style={{fontSize:isMobile ?"6vw":"3vw",marginRight:"1vw"}}/>Address & Others</div>
         <div>
             <div className={`Address `} >
                 <div>Located :</div>
-                <input type="text" name="" id="" defaultValue={(user.address)?user.address :''} onChange={(e)=>setAddress(e.target.value)} className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw]`}   placeholder='Plot no.-12,Sakshi Road,Jamshedpur,India'/>
+                <input type="text" name="" id="" defaultValue={(user.address)?user.address :''} onChange={(e)=>setAddress(e.target.value)} className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw]`}   placeholder='Plot no.-12,Sakshi Road,Jamshedpur,India'/>
             </div>
 
             <div className={`Founded date `}  >
                 <div>Founded :</div>
-                <input type="date" name="" id="" defaultValue={user.founded} onChange={(event) => setfounded(event.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}   placeholder=''/>
+                <input type="date" name="" id="" defaultValue={user.founded} onChange={(event) => setfounded(event.target.value)} className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}   placeholder=''/>
             </div>
 
             <div className={` Phone`}  >
                 <div>Phone :</div>
-                <input type="number" name="" defaultValue={(user.phone) ?(user.phone):''} onChange={(e)=>setPhone(e.target.value)} id="" className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw]`}   placeholder='10 digit number' maxLength="10" pattern="[0-9]{10}"/>
+                <input type="number" name="" defaultValue={(user.phone) ?(user.phone):''} onChange={(e)=>setPhone(e.target.value)} id="" className={` ${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw]`}   placeholder='10 digit number' maxLength="10" pattern="[0-9]{10}"/>
             </div>
 
             <div className={`Website `}  >
                 <div>Website : *</div>
-                <input type="string" name="" id="" value={user.website} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}   placeholder='www.abc.com'/>
+                <input type="string" name="" id="" value={user.website} readOnly className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] `}   placeholder='www.abc.com'/>
             </div>
 
             <div className={`Company Description `}  >
@@ -165,7 +165,7 @@ function ProfileItem() {
                 <textarea
                 defaultValue={(user.description) ? user.description:''}
                 onChange={(event) => setdescription(event.target.value)}
-                name="" id="" className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  border border-gray-600 ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] min-h-[20vh] `}   placeholder='Company description'/>
+                name="" id="" className={`${isMobile ? 'm-[1vw]' : 'm-[2vw]'}  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] ${isMobile ? 'px-[3vw]' : 'px-[1vw]'} py-[0.5vw] min-w-[40vw] min-h-[20vh] `}   placeholder='Company description'/>
             </div>
 
         </div>

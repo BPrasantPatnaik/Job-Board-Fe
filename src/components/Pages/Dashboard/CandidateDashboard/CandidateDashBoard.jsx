@@ -49,9 +49,9 @@ function CandidateDashBoard() {
 
 
     return (
-        <div className='bg-gray-100'>
+        <div className='bg-gray-100 dark:bg-[#101012]'>
             <div className={`${isMobile ? 'm-[2vw]' : 'm-[10vw]'} flex`}>
-                <div className='Left relative top-[8vw] hidden md:block sm:text-[3vw] md:text-[1.5vw] bg-slate-50 p-[1vw] m-[1vw] rounded-md max-h-[25vw] border border-green-200 '>
+                <div className='Left relative top-[8vw] hidden md:block sm:text-[3vw] md:text-[1.5vw] bg-slate-50 dark:bg-[#212734] dark:text-slate-200 p-[1vw] m-[1vw] rounded-md max-h-[25vw] border border-green-200 '>
                     <div className='User-name text-green-600 font-serif font-bold text-[1.5vw] flex justify-center align-middle'>
                         {user.fname}
                     </div>

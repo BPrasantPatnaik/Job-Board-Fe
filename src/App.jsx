@@ -27,7 +27,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
+    <div className="dark:bg-[#0F1117]">
+    <Navbar />
       <Routes>
         <Route path='/' element={<Index />} />
         <Route path='/jobs' element={<Joblist />} />
@@ -48,6 +49,8 @@ function App() {
       </Routes>
       <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
       <Footer />
+    </div>
+      
     </>
   )
 }

@@ -123,39 +123,39 @@ function CandidateProfile() {
 
   return (
 
-    <form className='flex flex-col' enctype="multipart/form-data" onSubmit={PersonalFormSubmitted}>
+    <form className='flex flex-col dark:text-slate-200' enctype="multipart/form-data" onSubmit={PersonalFormSubmitted}>
       <div className={`flex justify-center font-serif font-semibold underline ${isMobile ? 'text-[8vw]' : 'text-[3vw]'} pb-[3vw] text-green-600`} >Profile</div>
 
 
-      <div className='right-top  py-[0.5vw] bg-slate-50 p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 sm:text-[3vw] md:text-[1vw] '>
+      <div className='right-top  py-[0.5vw] bg-slate-50 dark:bg-[#212734] p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 sm:text-[3vw] md:text-[1vw] '>
         <div className='sm:text-[3vw] md:text-[1.5vw] pb-[3vw] text-green-600 '><PersonIcon style={{ fontSize: "3vw", marginRight: "1vw" }} />Personal Information (All fields are required to be filled)</div>
         <div>
           <div className='sm:text-[3vw] md:text-[1.5vw] pb-[3vw] text-green-600'>Astreik * fields are non-editable</div>
           <div></div>
           <div className='First Name'>
             <div>First Name : *</div>
-            <input type="text" name="" id="" value={user.fname} className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] ' required pattern=".*\S+.*" readOnly />
+            <input type="text" name="" id="" value={user.fname} className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] ' required pattern=".*\S+.*" readOnly />
           </div>
 
           <div className='Second Name'>
             <div>Second Name : *</div>
-            <input type="text" name="" id="" value={user.lname} className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' required pattern=".*\S+.*" readOnly />
+            <input type="text" name="" id="" value={user.lname} className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' required pattern=".*\S+.*" readOnly />
           </div>
 
           <div className='DOB'>
             <div>Date of Birth :</div>
-            <input type="date" name="" id="" defaultValue={user.dob} className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' onChange={(event) => setDateOfBirth(event.target.value)} placeholder='' />
+            <input type="date" name="" id="" defaultValue={user.dob} className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' onChange={(event) => setDateOfBirth(event.target.value)} placeholder='' />
           </div>
 
           <div className='Candidate Email'>
             <div>Email Address : *</div>
-            <input type="email" name="" id="" value={user.email} className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' required pattern=".*\S+.*" readOnly />
+            <input type="email" name="" id="" value={user.email} className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' required pattern=".*\S+.*" readOnly />
           </div>
 
           <div className='Phone'>
             <div>Phone : </div>
 
-            <input type="tel" name="" id="" defaultValue={(user.phone) ? user.phone : ''} className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' placeholder='10 digit number' minLength="10" maxLength="10" pattern="[0-9]{10}" onChange={(e) => setPhone(e.target.value)} />
+            <input type="tel" name="" id="" defaultValue={(user.phone) ? user.phone : ''} className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' placeholder='10 digit number' minLength="10" maxLength="10" pattern="[0-9]{10}" onChange={(e) => setPhone(e.target.value)} />
 
           </div>
 
@@ -168,12 +168,12 @@ function CandidateProfile() {
                 <DescriptionIcon style={{ fontSize: isMobile ? '10vw' : '7vw' }} />
 
                 <div className={`relative ${isMobile ? 'bottom-[10vw]' : 'bottom-[8vw]'} ${isMobile ? 'ml-[10vw]' : 'ml-[5vw]'} `} onClick={crossClicked}>
-                  <ClearIcon style={{ fontSize: isMobile ? '5vw' : '2vw' }} className='hover:bg-slate-300' />
+                  <ClearIcon style={{ fontSize: isMobile ? '5vw' : '2vw' }} className='hover:bg-slate-400' />
                 </div>
                 <div className={`${isMobile ? 'text-[2.5vw]' : 'text-[1vw]'} ${isMobile ? 'pl-[1vw]' : ''}`}>resume</div>
               </div>)
                :
-              (<div><input type='file' name="File" onChange={(e) => setFile(e.target.files[0])} className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] relative left-[2vw]' />
+              (<div><input type='file' name="File" onChange={(e) => setFile(e.target.files[0])} className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] relative left-[2vw]' />
               </div>)
             }
           </div>
@@ -183,43 +183,43 @@ function CandidateProfile() {
             <textarea
               defaultValue={(user.description) ? (user.description) : ''}
               onChange={(e) => setDescription(e.target.value)}
-              name="" id="" className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] min-h-[20vh] relative left-[2vw]' placeholder='Personal description' />
+              name="" id="" className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] min-h-[20vh] relative left-[2vw]' placeholder='Personal description' />
           </div>
         </div>
       </div>
 
-      <div className='right-middle sm:text-[3vw] md:text-[1vw] py-[0.5vw] bg-slate-50 p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 '>
+      <div className='right-middle sm:text-[3vw] md:text-[1vw] py-[0.5vw] bg-slate-50 dark:bg-[#212734] p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 '>
         <div className='sm:text-[3vw] md:text-[1.5vw] pb-[3vw] text-green-600'><PublicIcon style={{ fontSize: "3vw", marginRight: "1vw" }} />Social Links</div>
         <div>
           <div className='Linked Id'>
             <div>Linkedin :</div>
-            <input type="text" name="" id="" className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.linkedin) ? user.linkedin : ''} onChange={(e) => setLinkedin(e.target.value)} placeholder='https//linkedin.com/' />
+            <input type="text" name="" id="" className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.linkedin) ? user.linkedin : ''} onChange={(e) => setLinkedin(e.target.value)} placeholder='https//linkedin.com/' />
           </div>
 
           <div className='Twitter id'>
             <div>Twitter :</div>
-            <input type="text" name="" id="" className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.twitter) ? user.twitter : ''} onChange={(e) => setTwitter(e.target.value)} placeholder='https//twitter.com/' />
+            <input type="text" name="" id="" className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.twitter) ? user.twitter : ''} onChange={(e) => setTwitter(e.target.value)} placeholder='https//twitter.com/' />
           </div>
 
           <div className='Facebook'>
             <div>Facebook :</div>
-            <input type="text" name="" id="" className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.facebook) ? user.facebook : ''} onChange={(e) => setFacebook(e.target.value)} placeholder='https//facebook.com/' />
+            <input type="text" name="" id="" className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.facebook) ? user.facebook : ''} onChange={(e) => setFacebook(e.target.value)} placeholder='https//facebook.com/' />
           </div>
 
           <div className='Instagram'>
             <div>Instagram :</div>
-            <input type="text" name="" id="" className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.instagram) ? user.instagram : ''} onChange={(e) => setInstagram(e.target.value)} placeholder='hhtps//instagram.com/' />
+            <input type="text" name="" id="" className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.instagram) ? user.instagram : ''} onChange={(e) => setInstagram(e.target.value)} placeholder='hhtps//instagram.com/' />
           </div>
 
         </div>
       </div>
 
-      <div className='right-lower sm:text-[3vw] md:text-[1vw] py-[0.5vw] bg-slate-50 p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 '>
+      <div className='right-lower sm:text-[3vw] md:text-[1vw] py-[0.5vw] bg-slate-50 dark:bg-[#212734] p-[1vw] m-[1vw] font-serif rounded-md border border-green-200 '>
         <div className=' sm:text-[3vw] md:text-[1.5vw] pb-[3vw] text-green-600'><HomeIcon style={{ fontSize: "3vw", marginRight: "1vw" }} />Address & Others</div>
         <div>
           <div className='Address'>
             <div>Address :</div>
-            <input type="text" name="" id="" className='m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.address) ? user.address : ''} onChange={(e) => setAddress(e.target.value)} placeholder='Plot no.-12,Sakshi Road,Jamshedpur,India' />
+            <input type="text" name="" id="" className='m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]' defaultValue={(user.address) ? user.address : ''} onChange={(e) => setAddress(e.target.value)} placeholder='Plot no.-12,Sakshi Road,Jamshedpur,India' />
           </div>
         </div>
       </div>

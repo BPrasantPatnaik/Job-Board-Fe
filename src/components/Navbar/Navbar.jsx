@@ -20,6 +20,16 @@ function Navbar() {
   const [user, setUser] = useState({})
   const [category, setCategory] = useState('')
 
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [isDarkMode]);
+
   const navigate = useNavigate();
 
   const [isDropdownVisible, setDropdownVisible] = useState(false);//this is for section in login on image which opens when clicked
@@ -54,7 +64,7 @@ function Navbar() {
     const checkForLogins = async () => {
       try {
         const res = await axios.get('/api/')
-        console.log("Printing the data which came from backend in navbar= ", res)
+        //console.log("Printing the data which came from backend in navbar= ", res)
         if (res.data.valid) {
           // console.log("Hi i m in the if section of navbar check")
           setLoggedIn(true)
@@ -67,20 +77,29 @@ function Navbar() {
       }
     }
 
-    checkForLogins()
+    if(!loggedIn) checkForLogins()
+
   }, [setLoggedIn,logOut])
 
   return (
-    <div className={`mb-[5vw] `}   >
+    <div className={`mb-[5vw]  bg-gray-100 text-black dark:text-gray-200 dark:bg-[#101012]`}   >
 
       {/** mobile mode */}
-      <div className={` flex md:hidden justify-between items-center relative top-[2vw]`}   >
+      <div className={` bg-gray-100 dark:bg-[#101012] flex md:hidden justify-between items-center relative top-[2vw]`}   >
         <NavLink to='/'>
           <img src={RectangleLogo} alt="Logo" className={`w-[30vw] ml-[1vw] rounded-md `} />
         </NavLink>
-        <div className={`mr-[4vw] `} onClick={Menuboxclicked}>
-          <MenuIcon style={{ fontSize: "6vw" }} />
-        </div>
+        <div className='flex gap-[1vw] items-center'   >
+          <button
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="px-2 py-2 text-[5vw] rounded-full transition duration-300"
+          >
+            {isDarkMode ? "☀️" : "🌙"}
+          </button>
+          <div className={`mr-[4vw] `} onClick={Menuboxclicked}>
+            <MenuIcon style={{ fontSize: "6vw", color: isDarkMode ?"white":"black" }} />
+          </div>
+        </div>        
       </div>
 
       {/* Dropdown menu for mobile*/}
@@ -88,7 +107,7 @@ function Navbar() {
         <div className={`bg-gray-600 text-white absolute top-16 right-0 z-50 rounded-lg `}   >
           <div className={` p-4 text-[3vw] font-serif font-semibold `}   >
             <NavLink to="/">
-              <div className={`py-[0.5vw] hover:text-green-500 hover:underline `}   >Home</div>
+              <div className={`py-[0.5vw] hover:text-green-500 hover:underline `} >Home</div>
             </NavLink>
             {
               loggedIn ? (
@@ -101,8 +120,8 @@ function Navbar() {
                         </NavLink>
                       </div>
                     ) : (
-                      <div className={` Profile`}   >
-                        <NavLink to="/employer/Dashboard/Profile" activeclassName={`text-green-500 `} className={`py-[0.5vw] hover:text-green-500 hover:underline `}   >
+                      <div className={`Profile`}   >
+                        <NavLink to="/employer/Dashboard/Profile" activeClassName={`text-green-500 `} className={`py-[0.5vw] hover:text-green-500 hover:underline `}   >
                           Profile
                         </NavLink>
                       </div>
@@ -110,11 +129,11 @@ function Navbar() {
                   {
                     (category === 'candidate') ? (
                       <NavLink to="/candidate/Dashboard">
-                        <button className={`py-[0.5vw] hover:text-green-500 hover:underline `} activeclassName={`text-green-500 `}  >DashBoard</button>
+                        <button className={`py-[0.5vw] hover:text-green-500 hover:underline `} activeClassName={`text-green-500 `}  >DashBoard</button>
                       </NavLink>
                     ) : (
                       <NavLink to="/employer/Dashboard">
-                        <button className={`py-[0.5vw] hover:text-green-500 hover:underline `} activeclassName={`text-green-500 `}   >DashBoard</button>
+                        <button className={`py-[0.5vw] hover:text-green-500 hover:underline `} activeClassName={`text-green-500 `}   >DashBoard</button>
                       </NavLink>
                     )
 
@@ -152,8 +171,8 @@ function Navbar() {
       )}
 
       {/** tablet and desktop mode */}
-      <div className={` hidden md:flex lg:flex`}   >
-        <div className={` flex p-5 justify-between items-center shadow-md fixed bg-gray-100 w-full z-10`}   >
+      <div className={` hidden md:flex lg:flex `}   >
+        <div className={`bg-gray-100 dark:bg-[#101012] flex p-5 justify-between items-center shadow-md fixed  w-full z-10`}   >
           <div className={` Logo`}   >
             <NavLink to='/'>
               <img src={RectangleLogo} alt="Logo" className={`w-[15vw] rounded-md `} />
@@ -163,7 +182,7 @@ function Navbar() {
           <div className={` Middle`}   >
             <div className={`flex gap-[1.5vw] justify-center items-center font-semibold text-[1.5vw]  `}   >
               <div className={` Home`}   >
-                <NavLink to="/" activeClassName={` text-green-500`} className={`text-black hover:text-green-500 `}    >
+                <NavLink to="/" activeClassName={` text-green-500`} className={` hover:text-green-500 `}    >
                   Home
                 </NavLink>
               </div>
@@ -173,7 +192,7 @@ function Navbar() {
               {
                 (category === 'candidate') ? (
                   <div className={`Job-list `}  >
-                    <NavLink to="/jobs" activeClassName={`text-green-500 `} className={`text-black hover:text-green-500 `}   >
+                    <NavLink to="/jobs" activeClassName={`text-green-500 `} className={` hover:text-green-500 `}   >
                       Jobs
                     </NavLink>
                   </div>
@@ -191,13 +210,13 @@ function Navbar() {
                 loggedIn ? (
                   (category === 'candidate') ? (
                     <div className={`Profile `}   >
-                      <NavLink to="/candidate/Dashboard/Profile" activeClassName={`text-green-500 `} className={`text-black hover:text-green-500 `}   >
+                      <NavLink to="/candidate/Dashboard/Profile" activeClassName={`text-green-500 `} className={` hover:text-green-500 `}   >
                         Profile
                       </NavLink>
                     </div>
                   ) : (
                     <div className={`Profile `}   >
-                      <NavLink to="/employer/Dashboard/Profile" activeClassName={` text-green-500`} className={`text-black hover:text-green-500 `}   >
+                      <NavLink to="/employer/Dashboard/Profile" activeClassName={` text-green-500`} className={` hover:text-green-500 `}   >
                         Profile
                       </NavLink>
                     </div>
@@ -212,7 +231,14 @@ function Navbar() {
           </div>{/* middle */}
 
           <div className={`side Logins flex gap-[1.5vw] justify-end text-[1.5vw] `}   >
+            <button
+                onClick={() => setIsDarkMode(!isDarkMode)}
+                className="px-2 py-2 text-[2vw] rounded-full transition duration-300"
+              >
+                {isDarkMode ? "☀️" : "🌙"}
+              </button>
             {
+              
               //${user.name.charAt(0)}
               loggedIn ? (
                 <div className={`relative `}   >

@@ -7,6 +7,7 @@ import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
+  
   <Auth0Provider
     domain="dev-4hg3hzvf1snsoyz2.us.auth0.com"
     clientId="dboO5V1NTvNXwKb9nobopfNrMgtVnaQ2"

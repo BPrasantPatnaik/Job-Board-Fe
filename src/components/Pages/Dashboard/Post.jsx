@@ -151,27 +151,27 @@ function Post() {
   return (
     <form onSubmit={formSubmitted}>
       <div className={`flex justify-center font-serif font-semibold underline ${isMobile ? 'text-[8vw]' : 'text-[3vw]'} pb-[3vw] text-green-600`} >Post a Job</div>
-      <div  className={`right-top  ${isMobile ? 'text-[5vw]' : 'text-[1vw]'} py-[0.5vw] bg-slate-50 p-[1vw] m-[1vw] font-serif rounded-md border border-green-200  `}  >
+      <div  className={`right-top  ${isMobile ? 'text-[5vw]' : 'text-[1vw]'} py-[0.5vw] bg-slate-50 dark:bg-[#212734] dark:text-slate-200 p-[1vw] m-[1vw] font-serif rounded-md border border-green-200  `}  >
         <div  className={`${isMobile ? 'text-[7vw]' : 'text-[1.5vw]'} pb-[3vw] text-green-600 `}  >Job Details</div>
         <div>
             <div  className={` Company Name`}  >
                 <div>Company Name :</div>
-                <input type="text" name="" id="" value={user.companyname}  className={`m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}    required  pattern=".*\S+.*" placeholder='ABC Company'/>
+                <input type="text" name="" id="" value={user.companyname}  className={`m-[2vw] border-gray-600 dark:bg-[#101012] border  dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}    required  pattern=".*\S+.*" placeholder='ABC Company'/>
             </div>
 
             <div  className={`Job Title `}  >
                 <div>Job Title :</div>
-                <input type="text" name="" id="" defaultValue={jobtitle} onChange={(e)=>setJobtitle(e.target.value)}  className={`m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}    required pattern=".*\S+.*" placeholder='Software Engineer'/>
+                <input type="text" name="" id="" defaultValue={jobtitle} onChange={(e)=>setJobtitle(e.target.value)}  className={`m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}    required pattern=".*\S+.*" placeholder='Software Engineer'/>
             </div>
 
             <div  className={`Job Detail `}  >
                 <div>Details :</div>
-                <textarea  defaultValue={jobdescription} onChange={(e)=>setJobdescription(e.target.value)}  className={` m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] min-h-[20vh] relative left-[2vw]`}    required pattern=".*\S+.*" placeholder='Job related Details'/>
+                <textarea  defaultValue={jobdescription} onChange={(e)=>setJobdescription(e.target.value)}  className={` m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] min-h-[20vh] relative left-[2vw]`}    required pattern=".*\S+.*" placeholder='Job related Details'/>
             </div>
 
             <div  className={`Job Field `}  >
                 <div>Job Field :</div>
-                <input type="text" name="" id="" defaultValue={field} onChange={(e)=>setField(e.target.value)}  className={` m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}   required pattern=".*\S+.*" placeholder='Development, Marketing, etc'/>
+                <input type="text" name="" id="" defaultValue={field} onChange={(e)=>setField(e.target.value)}  className={` m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}   required pattern=".*\S+.*" placeholder='Development, Marketing, etc'/>
             </div>
 
             <div  className={` JobCategory `}  >
@@ -246,17 +246,17 @@ function Post() {
 
           <div  className={` Experience`} >
                 <div>Experience Req. :</div>
-                <input type="number" name="" id=""  onChange={(e)=>setExperience(e.target.value)}  className={`m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]  `}   required placeholder='5'/>
+                <input type="number" name="" id=""  onChange={(e)=>setExperience(e.target.value)}  className={`m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]  `}   required placeholder='5'/>
             </div>
 
           <div  className={`Posts `} >
                 <div>Total positions :</div>
-                <input type="number" name="" id="" onChange={(e)=>setPost(e.target.value)}  className={`m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]  `}   required placeholder='5'/>
+                <input type="number" name="" id="" onChange={(e)=>setPost(e.target.value)}  className={`m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]  `}   required placeholder='5'/>
           </div>
 
             <div  className={`Salary Offered `}  >
                 <div>Salary :</div>
-                <input type="number" name="" id="" onChange={(e)=>setSalary(e.target.value)}   className={`m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}   required placeholder='400000'/>
+                <input type="number" name="" id="" onChange={(e)=>setSalary(e.target.value)}   className={`m-[2vw] dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}   required placeholder='400000'/>
             </div>
 
 
@@ -327,7 +327,7 @@ function Post() {
                   type="text"
                   name=""
                   id=""
-                   className={` m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]`}  
+                   className={` m-[2vw]  dark:bg-[#101012] border border-gray-600 dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw]`}  
                   pattern=".*\S+.*"
                   placeholder='Enter location'
                   value={newLocation}
@@ -358,7 +358,7 @@ function Post() {
                   type="text"
                   name=""
                   id=""
-                   className={`m-[2vw] border border-gray-600 px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}  
+                   className={`m-[2vw] border-gray-600 dark:bg-[#101012] border dark:border-[#753ca3] px-[1vw] py-[0.5vw] min-w-[40vw] relative left-[2vw] `}  
                   pattern=".*\S+.*"
                   placeholder='Enter Skill'
                   value={newSkills}

@@ -180,9 +180,9 @@ function CandidateDashItem() {
 
 
     return (
-        <div className={` Right mb-[5vw] w-full`}  >
+        <div className={` Right dark:bg-[#101012] dark:text-slate-200 mb-[5vw] w-full`}  >
             <div className={`font-serif font-semibold underline flex justify-center align-middle ${isMobile ? 'text-[7vw]' : 'text-[3vw]'} pb-[3vw] text-green-600 `}  >DashBoard</div>
-            <div className={`Right-top ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} py-[1vw] bg-slate-50 ${isMobile ? 'p-[5vw]' : 'p-[1.5vw]'} ${isMobile ? 'my-[5vw]' : 'my-[1.5vw]'} font-serif rounded-md border border-green-200 w-full`}>
+            <div className={`Right-top bg-slate-50 dark:bg-[#212734] ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} py-[1vw]  ${isMobile ? 'p-[5vw]' : 'p-[1.5vw]'} ${isMobile ? 'my-[5vw]' : 'my-[1.5vw]'} font-serif rounded-md border border-green-200 w-full`}>
 
                 <div className={` ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} ${isMobile ? '' : 'm-[1.5vw]'} flex justify-center underline text-green-500 font-medium`}  ><PublicIcon style={{ fontSize: isMobile ? '6vw' : '3vw', marginRight: '1vw' }} />Applications in different Categories</div>
                 <div className={`py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'} `}  >Engineering : {engg}</div>
@@ -191,7 +191,7 @@ function CandidateDashItem() {
                 <div className={`py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'}`}  >Accountancy : {account}</div>
                 <div className={` py-[1vw] ${isMobile ? 'text-[4vw]' : 'text-[1.5vw]'}`}  >Sales & Marketing : {SM}</div>
             </div>
-            <div className={`Right-bottom ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} py-[1vw] bg-slate-50 p-[1vw] font-serif rounded-md border border-green-200 w-full`}>
+            <div className={`Right-bottom ${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'} py-[1vw] bg-slate-50 dark:bg-[#212734]  p-[1vw] font-serif rounded-md border border-green-200 w-full`}>
 
                 <div className={`${isMobile ? 'text-[5vw]' : 'text-[1.5vw]'}  flex justify-center underline text-green-500 font-medium `}  ><ReceiptLongIcon style={{ fontSize: isMobile ? '6vw' : '3vw', marginRight: '1vw' }} />Job Applications</div>
 
